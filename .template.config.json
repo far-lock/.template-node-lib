@@ -1,0 +1,8 @@
+{   
+    "config" : {
+        "project_title": "New Lib",
+        "package_name": "new-lib",
+        "github_path": "myorg/new-lib",
+        "github_org": "myorg"
+    }
+}

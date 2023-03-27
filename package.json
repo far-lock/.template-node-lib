@@ -1,0 +1,44 @@
+{
+  "name": "{{ config.package_name }}",
+  "version": "0.1.0",
+  "description": "{{ config.project_title }} library",
+  "main": "index.js",
+  "scripts": {
+    "generate-docs": "jsdoc index.js README.md",
+    "format-code": "prettier --write . --ignore-unknown",
+    "lint-code": "prettier --check .",
+    "lint-commit": "commitlint --from=HEAD~1",
+    "prepare": "husky install",
+    "posttest": "tap --coverage-report=text-lcov > coverage.info",
+    "postversion": "echo \"👉🏻 You can now publish your tag with 'git push --follow-tags'\"",
+    "test": "tap",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{{ config.github_path }}}.git"
+  },
+  "keywords": [
+    "library",
+    "utils"
+  ],
+  "author": "Andrea Stagi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/{{{ config.github_path }}}/issues"
+  },
+  "homepage": "https://github.com/{{{ config.github_path }}}#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "conventional-changelog": "^3.1.25",
+    "husky": "^8.0.3",
+    "jsdoc": "^4.0.2",
+    "lint-staged": "^13.2.0",
+    "prettier": "2.8.6",
+    "tap": "^16.3.4"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
